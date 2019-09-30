@@ -1,0 +1,8 @@
+{
+    "appService.zipIgnorePattern": [
+        "node_modules{,/**}",
+        ".vscode{,/**}"
+    ],
+    "appService.defaultWebAppToDeploy": "/subscriptions/a1e8c7f5-70d4-42d0-b199-7a5c5967b489/resourceGroups/Malvi/providers/Microsoft.Web/sites/ParqueaderoBackend",
+    "appService.deploySubpath": ""
+}
