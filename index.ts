@@ -4,6 +4,7 @@ import mysql from 'mysql'
 import bodyparser from 'body-parser'
 import config from './configdatebase'
 import VehiculosRouter from './routes/vehiculos'
+import indexRouter from './routes/indexrouter'
 const server = new Server()
 
 
@@ -14,7 +15,6 @@ server.app.use(bodyparser.json())
 
 server.start((req:any,res:any)=>{
     console.log("servidor corriendo el puerto "+server.port)
-    res.end('hello word')
 })
 
 
@@ -29,5 +29,6 @@ const con = mysql.createConnection(config);
       console.log("Connected! con mysql :v");
   });
 
+server.app.use('/',indexRouter)
 server.app.use('/user', userRouter)
 server.app.use('/vehiculos', VehiculosRouter)

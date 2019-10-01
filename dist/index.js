@@ -9,14 +9,14 @@ var mysql_1 = __importDefault(require("mysql"));
 var body_parser_1 = __importDefault(require("body-parser"));
 var configdatebase_1 = __importDefault(require("./configdatebase"));
 var vehiculos_1 = __importDefault(require("./routes/vehiculos"));
+var indexrouter_1 = __importDefault(require("./routes/indexrouter"));
 var server = new server_1.default();
 // bODY PARSER
 server.app.use(body_parser_1.default.urlencoded({ extended: true }));
 server.app.use(body_parser_1.default.json());
 //levantar express
-server.start(function () {
-    console.log("servidore corriendo el puerto " + server.port);
-  
+server.start(function (req, res) {
+    console.log("servidor corriendo el puerto " + server.port);
 });
 //conectar mysql
 var con = mysql_1.default.createConnection(configdatebase_1.default);
@@ -27,5 +27,6 @@ con.connect(function (err) {
     }
     console.log("Connected! con mysql :v");
 });
+server.app.use('/', indexrouter_1.default);
 server.app.use('/user', usuario_1.default);
 server.app.use('/vehiculos', vehiculos_1.default);
