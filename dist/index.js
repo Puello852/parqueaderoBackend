@@ -15,7 +15,8 @@ server.app.use(body_parser_1.default.urlencoded({ extended: true }));
 server.app.use(body_parser_1.default.json());
 //levantar express
 server.start(function () {
-    console.log("servidor corriendo el puerto " + server.port);
+    console.log("servidore corriendo el puerto " + server.port);
+  
 });
 //conectar mysql
 var con = mysql_1.default.createConnection(configdatebase_1.default);

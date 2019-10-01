@@ -12,8 +12,9 @@ server.app.use(bodyparser.urlencoded({extended:true}))
 server.app.use(bodyparser.json())
 //levantar express
 
-server.start(()=>{
+server.start((req:any,res:any)=>{
     console.log("servidor corriendo el puerto "+server.port)
+    res.end('hello word')
 })
 
 
